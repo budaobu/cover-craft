@@ -1,17 +1,38 @@
 <div align="center">
+  <img src="public/logo.jpg" alt="Cover Craft Logo" width="180" />
+  
   <h1>🎨 Cover Craft</h1>
-  <p><em>一个现代化的封面设计工具</em></p>
+  <p><em>一个现代化的封面设计工具，让创作更简单</em></p>
+
+  <p align="center">
+    <img src="https://img.shields.io/badge/React-18.3.1-61dafb?style=flat-square&logo=react" alt="React" />
+    <img src="https://img.shields.io/badge/TypeScript-5.6.2-blue?style=flat-square&logo=typescript" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/Vite-6.0.3-646cff?style=flat-square&logo=vite" alt="Vite" />
+    <img src="https://img.shields.io/badge/TailwindCSS-3.4.17-38bdf8?style=flat-square&logo=tailwindcss" alt="TailwindCSS" />
+  </p>
 
   <p>
+    <a href="#预览">预览</a> •
+    <a href="#特性介绍">特性介绍</a> •
     <a href="#技术栈">技术栈</a> •
     <a href="#快速开始">快速开始</a> •
-    <a href="#项目结构">项目结构</a> •
-    <a href="#功能特性">功能特性</a> •
     <a href="#开发指南">开发指南</a>
   </p>
 </div>
 
 ---
+
+## 📸 预览
+
+<div align="center">
+  <img src="public/preview-1.jpg" alt="编辑器界面" width="800" />
+  <p><em>极简主义</em></p>
+</div>
+
+<div align="center">
+  <img src="public/preview-2.jpg" alt="导出效果" width="800" />
+  <p><em>强大的编辑器界面</em></p>
+</div>
 
 ## ✨ 技术栈
 

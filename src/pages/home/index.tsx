@@ -9,8 +9,8 @@ export default function Home() {
       {/* Hero Section */}
       <section className="flex-1 flex justify-center space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
         <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
-          <div className="flex flex-col items-center gap-4 mb-8">
-            <div className="w-32 h-32 mb-4">
+          <div className="flex flex-col items-center gap-4 mb-32">
+            <div className="w-64 h-64 mb-4">
               {/* 这里放置 Logo */}
               <img src="/logo.jpg" alt="Cover Craft Logo" className="w-full h-full" />
             </div>
