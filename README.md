@@ -117,7 +117,7 @@ pnpm lint # 运行 ESLint 检查
 
 ## 📄 许可证
 
-[MIT License](LICENSE)
+[GPL-3.0 License](LICENSE)
 
 ---
 
