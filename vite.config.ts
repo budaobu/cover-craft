@@ -3,12 +3,13 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: '/cover-craft/',
+  // 只在生产环境下设置 base
+  base: command === 'serve' ? '/' : '/cover-craft/',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-})
+}))
