@@ -25,7 +25,6 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
-import { Separator } from "@/components/ui/separator"
 import { Download, Github, ListRestart, Share2 } from "lucide-react"
 import {
   DropdownMenu,
