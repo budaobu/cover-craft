@@ -26,7 +26,7 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import { Separator } from "@/components/ui/separator"
-import { Download, ListRestart, Share2 } from "lucide-react"
+import { Download, Github, ListRestart, Share2 } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -122,6 +122,14 @@ export default function Generator() {
         <div className="flex h-16 justify-between items-center gap-4 px-4">
           <div className="text-sm text-lg font-bold">封面生成器</div>
           <div className="flex items-center space-x-2">
+            {/* 添加 GitHub 按钮 */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => window.open('https://github.com/guizimo/cover-craft', '_blank')}
+            >
+              <Github className="h-4 w-4" />
+            </Button>
             <Button variant="outline" size="sm" onClick={resetSettings}>
               <ListRestart className="mr-2 h-4 w-4" />
               重置
