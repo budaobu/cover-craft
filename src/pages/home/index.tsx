@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Image, Wand2, Share2 } from "lucide-react"
 import { Link } from "react-router-dom"
+import logo from '@/assets/logo.jpg' 
 
 
 export default function Home() {
@@ -12,7 +13,7 @@ export default function Home() {
           <div className="flex flex-col items-center gap-4 mb-32">
             <div className="w-64 h-64 mb-4">
               {/* 这里放置 Logo */}
-              <img src="/logo.jpg" alt="Cover Craft Logo" className="w-full h-full" />
+              <img src={logo} alt="Cover Craft Logo" className="w-full h-full" />
             </div>
             <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-primary">
               Cover Craft
