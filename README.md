@@ -115,12 +115,33 @@ pnpm lint # 运行 ESLint 检查
 - `html2canvas`: HTML 转换为 canvas
 - `clsx` & `tailwind-merge`: 样式工具
 
-## 📄 许可证
 
-[GPL-3.0 License](LICENSE)
+## 更新日志
 
----
+[**Changelog**](./CHANGELOG.md) - 查看项目的更新日志
 
-<div align="center">
-  <sub>Built with ❤️ by Guizimo</sub>
-</div>
+## 贡献
+
+欢迎任何形式的贡献！你可以通过以下方式贡献代码：
+
+1. Fork 此仓库
+2. 创建你的功能分支 (git checkout -b feature/fooBar)
+3. 提交你的更改 (git commit -am 'Add some fooBar')
+4. 推送到分支 (git push origin feature/fooBar)
+5. 创建一个新的Pull Request
+
+## 许可
+
+该项目基于 GPL-3.0 License 许可证。详情请参阅 [LICENSE](LICENSE) 文件。
+
+## 联系
+
+如果你有任何问题或建议，请通过以下方式联系我：
+
+- **Email**:  17680262548@163.com
+
+- **GitHub Issues**: [这里](https://github.com/guizimo/cover-craft/issues)
+
+
+
+感谢你使用`cover-craft`！希望它能对您有所帮助，别忘了点点星星哦。
