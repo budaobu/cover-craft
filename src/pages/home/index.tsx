@@ -1,8 +1,7 @@
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Image, Wand2, Share2 } from "lucide-react"
-import { Link } from "react-router-dom"
-import logo from '@/assets/logo.jpg' 
-
+import { Button } from '@/components/ui/button';
+import { ArrowRight, Image, Wand2, Share2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import logo from '@/assets/logo.jpg';
 
 export default function Home() {
   return (
@@ -28,10 +27,10 @@ export default function Home() {
           </p>
           <div className="space-x-4">
             <Link to="/generator">
-            <Button size="lg">
+              <Button size="lg">
                 开始使用
                 <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+              </Button>
             </Link>
             <a href="https://github.com/guizimo/cover-craft" target="_blank">
               <Button variant="outline" size="lg">
@@ -45,9 +44,7 @@ export default function Home() {
       {/* Features Section */}
       <section className="container space-y-6 bg-slate-50 py-8 dark:bg-transparent md:py-12 lg:py-24">
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-          <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
-            特性
-          </h2>
+          <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">特性</h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
             专业的封面设计工具，让你的创作更出彩
           </p>
@@ -58,9 +55,7 @@ export default function Home() {
               <Image className="h-12 w-12 text-primary" />
               <div className="space-y-2">
                 <h3 className="font-bold">多种尺寸</h3>
-                <p className="text-sm text-muted-foreground">
-                  支持多种常用尺寸，适配各大平台
-                </p>
+                <p className="text-sm text-muted-foreground">支持多种常用尺寸，适配各大平台</p>
               </div>
             </div>
           </div>
@@ -69,9 +64,7 @@ export default function Home() {
               <Wand2 className="h-12 w-12 text-primary" />
               <div className="space-y-2">
                 <h3 className="font-bold">一键美化</h3>
-                <p className="text-sm text-muted-foreground">
-                  内置多种模板和样式，快速生成精美封面
-                </p>
+                <p className="text-sm text-muted-foreground">内置多种模板和样式，快速生成精美封面</p>
               </div>
             </div>
           </div>
@@ -80,9 +73,7 @@ export default function Home() {
               <Share2 className="h-12 w-12 text-primary" />
               <div className="space-y-2">
                 <h3 className="font-bold">便捷分享</h3>
-                <p className="text-sm text-muted-foreground">
-                  支持多种导出格式，随时分享你的作品
-                </p>
+                <p className="text-sm text-muted-foreground">支持多种导出格式，随时分享你的作品</p>
               </div>
             </div>
           </div>
@@ -92,14 +83,12 @@ export default function Home() {
       {/* Start Section */}
       <section className="container py-8 md:py-12 lg:py-24">
         <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
-          <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
-            准备好了吗？
-          </h2>
+          <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">准备好了吗？</h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
             立即开始创作你的专属封面
           </p>
           <Link to="/generator">
-          <Button size="lg">
+            <Button size="lg">
               开始使用
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -111,7 +100,7 @@ export default function Home() {
       <footer className="py-6 md:px-8 md:py-0">
         <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
           <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            Built by{" "}
+            Built by{' '}
             <a
               href="https://github.com/guizimo"
               target="_blank"
@@ -120,7 +109,7 @@ export default function Home() {
             >
               Guizimo
             </a>
-            . The source code is available on{" "}
+            . The source code is available on{' '}
             <a
               href="https://github.com/guizimo/cover-craft"
               target="_blank"
@@ -134,5 +123,5 @@ export default function Home() {
         </div>
       </footer>
     </div>
-  )
+  );
 }

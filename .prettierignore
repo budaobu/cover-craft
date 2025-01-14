@@ -7,4 +7,12 @@
 *.md
 *.json
 bin
+.github
+.husky
+.idea
+.vscode
 
+commitlint.config.js
+eslint.config.js
+postcss.config.js
+tailwind.config.js
