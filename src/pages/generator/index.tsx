@@ -25,6 +25,7 @@ interface CoverSize {
 }
 
 const PRESET_SIZES: CoverSize[] = [
+  { width: 730, height: 310, label: '个人博客 (730x310)' },
   { width: 1200, height: 630, label: '社交媒体 (1200x630)' },
   { width: 1920, height: 1080, label: '全高清 (1920x1080)' },
   { width: 800, height: 600, label: '文章封面 (800x600)' },
@@ -63,6 +64,22 @@ export default function Generator() {
     setGradientAngle(45);
     setBackgroundType('solid');
   };
+
+  // 添加字体配置
+  const FONT_FAMILIES = [
+    { value: 'sans-serif', label: 'Sans Serif' },
+    { value: 'serif', label: 'Serif' },
+    { value: 'monospace', label: 'Monospace' },
+    { value: 'Pacifico, cursive', label: 'Pacifico' },
+    { value: 'Dancing Script, cursive', label: 'Dancing Script' },
+    { value: 'Great Vibes, cursive', label: 'Great Vibes' },
+    { value: 'Satisfy, cursive', label: 'Satisfy' },
+    // 中文字体
+    { value: '"Noto Serif SC", serif', label: '思源宋体' },
+    { value: '"ZCOOL XiaoWei", serif', label: '站酷小薇' },
+    { value: '"ZCOOL QingKe HuangYou", cursive', label: '站酷庆科黄油体' },
+    { value: '"Ma Shan Zheng", cursive', label: '马善政楷书' }
+  ];
 
   // 计算背景样式
   const computedBackgroundStyle = () => {
@@ -234,10 +251,11 @@ export default function Generator() {
                           <SelectValue placeholder="选择字体" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="sans-serif">Sans Serif</SelectItem>
-                          <SelectItem value="serif">Serif</SelectItem>
-                          <SelectItem value="monospace">Monospace</SelectItem>
-                          <SelectItem value="cursive">Cursive</SelectItem>
+                          {FONT_FAMILIES.map(({ value, label }) => (
+                            <SelectItem key={value} value={value}>
+                              <span style={{ fontFamily: value }}>{label}</span>
+                            </SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                     </div>
