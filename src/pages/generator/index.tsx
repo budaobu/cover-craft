@@ -41,24 +41,26 @@ export default function Generator() {
   const [customHeight, setCustomHeight] = useState(630);
   const [isCustomSize, setIsCustomSize] = useState(false);
 
-  const [fontSize, setFontSize] = useState(40);
+  const [fontSize, setFontSize] = useState(90);
   const [fontFamily, setFontFamily] = useState('sans-serif');
-  const [backgroundColor, setBackgroundColor] = useState('#ffffff');
-  const [textColor, setTextColor] = useState('#000000');
+  const [letterSpacing, setLetterSpacing] = useState(10);
+  const [backgroundColor, setBackgroundColor] = useState('#022D3D');
+  const [textColor, setTextColor] = useState('#ffffff');
   const [gradientStart, setGradientStart] = useState('#4f46e5');
   const [gradientEnd, setGradientEnd] = useState('#818cf8');
   const [gradientAngle, setGradientAngle] = useState(45);
   const [backgroundType, setBackgroundType] = useState('solid');
   // 字体设置
-  const [fontWeight, setFontWeight] = useState(400);
+  const [fontWeight, setFontWeight] = useState(500);
 
   // 重置设置
   const resetSettings = () => {
     setTitle('输入标题预览效果');
-    setFontSize(40);
+    setFontSize(80);
+    setLetterSpacing(10);
     setFontFamily('sans-serif');
-    setBackgroundColor('#ffffff');
-    setTextColor('#000000');
+    setBackgroundColor('#022D3D');
+    setTextColor('#ffffff');
     setGradientStart('#4f46e5');
     setGradientEnd('#818cf8');
     setGradientAngle(45);
@@ -274,6 +276,20 @@ export default function Generator() {
                       </div>
                     </div>
                     <div className="space-y-2">
+                      <Label className="text-muted-foreground">字间距</Label>
+                      <div className="flex items-center space-x-2">
+                        <Slider
+                          value={[letterSpacing]}
+                          onValueChange={([value]) => setLetterSpacing(value)}
+                          min={-10}
+                          max={30}
+                          step={0.5}
+                          className="flex-1"
+                        />
+                        <span className="w-12 text-sm text-muted-foreground text-right">{letterSpacing}px</span>
+                      </div>
+                    </div>
+                    <div className="space-y-2">
                       <Label className="text-muted-foreground">字重</Label>
                       <div className="flex space-x-2">
                         <Input
@@ -417,7 +433,8 @@ export default function Generator() {
                       fontSize: `${fontSize}px`,
                       fontFamily,
                       fontWeight,
-                      color: textColor
+                      color: textColor,
+                      letterSpacing: `${letterSpacing}px`
                     }}
                   >
                     {title}
