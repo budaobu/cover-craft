@@ -98,7 +98,7 @@ export default function Generator() {
   };
 
   // 导出图片
-  const exportImage = async (format: 'png' | 'jpeg' | 'webp') => {
+  const exportImage = async (format: 'png' | 'jpeg' | 'webp' | 'avif') => {
     const element = document.getElementById('cover-preview');
     if (!element) return;
 
@@ -156,6 +156,7 @@ export default function Generator() {
                 <DropdownMenuItem onClick={() => exportImage('png')}>PNG 格式</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => exportImage('jpeg')}>JPEG 格式</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => exportImage('webp')}>WebP 格式</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => exportImage('avif')}>AVIF 格式</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
