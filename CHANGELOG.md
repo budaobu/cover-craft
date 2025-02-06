@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/guizimo/cover-craft/compare/v0.0.2...v0.0.3) (2025-02-06)
+
+
+### Features
+
+* (font) 增加字体最大值限制 ([8f8f9a1](https://github.com/guizimo/cover-craft/commit/8f8f9a1c97541c8d67f5c439965e3cfdee418332))
+* (font) 新增 8 个中英文字体 ([d42aa23](https://github.com/guizimo/cover-craft/commit/d42aa23e0cd6a4809465dbb496a2fccb4789a6af))
+
 ### 0.0.2 (2025-01-14)
 
 
