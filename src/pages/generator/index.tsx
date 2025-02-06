@@ -248,7 +248,7 @@ export default function Generator() {
                           value={[fontSize]}
                           onValueChange={([value]) => setFontSize(value)}
                           min={20}
-                          max={80}
+                          max={200}
                           step={1}
                           className="flex-1"
                         />
