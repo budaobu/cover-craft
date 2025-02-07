@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/guizimo/cover-craft/compare/v0.0.5...v0.0.6) (2025-02-07)
+
+
+### Features
+
+* (code) 优化代码结构 ([80e4713](https://github.com/guizimo/cover-craft/commit/80e47136a9fbeb37cdfa121d82c994819856d944))
+* (code) 拆分项目 ([6536828](https://github.com/guizimo/cover-craft/commit/65368286bef37b378f047d9535fd015dfae7782e))
+
 ### [0.0.5](https://github.com/guizimo/cover-craft/compare/v0.0.4...v0.0.5) (2025-02-07)
 
 
