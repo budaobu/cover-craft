@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
-
+import { PRESET_SIZES, FONT_FAMILIES, DEFAULT_SETTINGS, CoverSize } from '@/config/generator';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -17,78 +17,48 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 
-interface CoverSize {
-  width: number;
-  height: number;
-  label: string;
-}
-
-const PRESET_SIZES: CoverSize[] = [
-  { width: 730, height: 310, label: '个人博客 (730x310)' },
-  { width: 1200, height: 630, label: '社交媒体 (1200x630)' },
-  { width: 1920, height: 1080, label: '全高清 (1920x1080)' },
-  { width: 800, height: 600, label: '文章封面 (800x600)' },
-  { width: 1080, height: 1080, label: 'Instagram (1080x1080)' }
-];
-
 export default function Generator() {
   // 状态管理
-  const [title, setTitle] = useState('输入标题预览效果');
+  const [title, setTitle] = useState(DEFAULT_SETTINGS.title);
   // 尺寸设置
-  const [selectedSize, setSelectedSize] = useState<CoverSize>(PRESET_SIZES[0]);
-  const [customWidth, setCustomWidth] = useState(1200);
-  const [customHeight, setCustomHeight] = useState(630);
+  const [selectedSize, setSelectedSize] = useState<CoverSize>(DEFAULT_SETTINGS.selectedSize);
+  const [customWidth, setCustomWidth] = useState(DEFAULT_SETTINGS.customWidth);
+  const [customHeight, setCustomHeight] = useState(DEFAULT_SETTINGS.customHeight);
   const [isCustomSize, setIsCustomSize] = useState(false);
 
-  const [fontSize, setFontSize] = useState(90);
-  const [fontFamily, setFontFamily] = useState('"ZCOOL QingKe HuangYou", cursive');
-  const [letterSpacing, setLetterSpacing] = useState(10);
-  const [backgroundColor, setBackgroundColor] = useState('#022D3D');
-  const [textColor, setTextColor] = useState('#ffffff');
-  const [gradientStart, setGradientStart] = useState('#4f46e5');
-  const [gradientEnd, setGradientEnd] = useState('#818cf8');
-  const [gradientAngle, setGradientAngle] = useState(45);
-  const [backgroundType, setBackgroundType] = useState('solid');
-  const [borderRadius, setBorderRadius] = useState(0);
+  const [fontSize, setFontSize] = useState(DEFAULT_SETTINGS.fontSize);
+  const [fontFamily, setFontFamily] = useState(DEFAULT_SETTINGS.fontFamily);
+  const [letterSpacing, setLetterSpacing] = useState(DEFAULT_SETTINGS.letterSpacing);
+  const [backgroundColor, setBackgroundColor] = useState(DEFAULT_SETTINGS.backgroundColor);
+  const [textColor, setTextColor] = useState(DEFAULT_SETTINGS.textColor);
+  const [gradientStart, setGradientStart] = useState(DEFAULT_SETTINGS.gradientStart);
+  const [gradientEnd, setGradientEnd] = useState(DEFAULT_SETTINGS.gradientEnd);
+  const [gradientAngle, setGradientAngle] = useState(DEFAULT_SETTINGS.gradientAngle);
+  const [backgroundType, setBackgroundType] = useState(DEFAULT_SETTINGS.backgroundType);
+  const [borderRadius, setBorderRadius] = useState(DEFAULT_SETTINGS.borderRadius);
   const [backgroundImage, setBackgroundImage] = useState('');
-  const [backgroundSize, setBackgroundSize] = useState<'cover' | 'contain'>('cover');
-  const [backgroundPosition, setBackgroundPosition] = useState('center');
+  const [backgroundSize, setBackgroundSize] = useState<'cover' | 'contain'>(DEFAULT_SETTINGS.backgroundSize);
+  const [backgroundPosition, setBackgroundPosition] = useState(DEFAULT_SETTINGS.backgroundPosition);
   // 字体设置
-  const [fontWeight, setFontWeight] = useState(500);
+  const [fontWeight, setFontWeight] = useState(DEFAULT_SETTINGS.fontWeight);
 
   // 重置设置
   const resetSettings = () => {
-    setTitle('输入标题预览效果');
-    setFontSize(90);
-    setLetterSpacing(10);
-    setFontFamily('"ZCOOL QingKe HuangYou", cursive');
-    setBackgroundColor('#022D3D');
-    setTextColor('#ffffff');
-    setGradientStart('#4f46e5');
-    setGradientEnd('#818cf8');
-    setGradientAngle(45);
-    setBackgroundType('solid');
-    setBorderRadius(0);
+    setTitle(DEFAULT_SETTINGS.title);
+    setFontSize(DEFAULT_SETTINGS.fontSize);
+    setLetterSpacing(DEFAULT_SETTINGS.letterSpacing);
+    setFontFamily(DEFAULT_SETTINGS.fontFamily);
+    setBackgroundColor(DEFAULT_SETTINGS.backgroundColor);
+    setTextColor(DEFAULT_SETTINGS.textColor);
+    setGradientStart(DEFAULT_SETTINGS.gradientStart);
+    setGradientEnd(DEFAULT_SETTINGS.gradientEnd);
+    setGradientAngle(DEFAULT_SETTINGS.gradientAngle);
+    setBackgroundType(DEFAULT_SETTINGS.backgroundType);
+    setBorderRadius(DEFAULT_SETTINGS.borderRadius);
     setBackgroundImage('');
-    setBackgroundSize('cover');
-    setBackgroundPosition('center');
+    setBackgroundSize(DEFAULT_SETTINGS.backgroundSize);
+    setBackgroundPosition(DEFAULT_SETTINGS.backgroundPosition);
   };
-
-  // 添加字体配置
-  const FONT_FAMILIES = [
-    { value: 'sans-serif', label: 'Sans Serif' },
-    { value: 'serif', label: 'Serif' },
-    { value: 'monospace', label: 'Monospace' },
-    { value: 'Pacifico, cursive', label: 'Pacifico' },
-    { value: 'Dancing Script, cursive', label: 'Dancing Script' },
-    { value: 'Great Vibes, cursive', label: 'Great Vibes' },
-    { value: 'Satisfy, cursive', label: 'Satisfy' },
-    // 中文字体
-    { value: '"Noto Serif SC", serif', label: '思源宋体' },
-    { value: '"ZCOOL XiaoWei", serif', label: '站酷小薇' },
-    { value: '"ZCOOL QingKe HuangYou", cursive', label: '站酷庆科黄油体' },
-    { value: '"Ma Shan Zheng", cursive', label: '马善政楷书' }
-  ];
 
   // 添加图片上传处理函数
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
