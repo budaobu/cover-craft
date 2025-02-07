@@ -106,15 +106,20 @@ export default function Generator() {
   const computedBackgroundStyle = () => {
     switch (backgroundType) {
       case 'solid':
-        return backgroundColor;
+        return { backgroundColor };
       case 'gradient':
-        return `linear-gradient(${gradientAngle}deg, ${gradientStart}, ${gradientEnd})`;
+        return { backgroundImage: `linear-gradient(${gradientAngle}deg, ${gradientStart}, ${gradientEnd})` };
       case 'image':
-        return backgroundImage ? `url(${backgroundImage})` : 'none';
+        return {
+          backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none',
+          backgroundSize,
+          backgroundPosition,
+          backgroundRepeat: 'no-repeat'
+        };
       case 'transparent':
-        return 'transparent';
+        return { backgroundColor: 'transparent' };
       default:
-        return backgroundColor;
+        return { backgroundColor };
     }
   };
 
@@ -503,11 +508,8 @@ export default function Generator() {
                   style={{
                     width: isCustomSize ? customWidth : selectedSize.width,
                     height: isCustomSize ? customHeight : selectedSize.height,
-                    background: computedBackgroundStyle(),
-                    backgroundSize: backgroundType === 'image' ? backgroundSize : undefined,
-                    backgroundPosition: backgroundType === 'image' ? backgroundPosition : undefined,
-                    backgroundRepeat: backgroundType === 'image' ? 'no-repeat' : undefined,
-                    borderRadius: `${borderRadius}px`
+                    borderRadius: `${borderRadius}px`,
+                    ...computedBackgroundStyle()
                   }}
                 >
                   <div
