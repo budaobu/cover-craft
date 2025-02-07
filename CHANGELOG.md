@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/guizimo/cover-craft/compare/v0.0.4...v0.0.5) (2025-02-07)
+
+
+### Features
+
+* (background) 背景新增图片模式，支持本地图片上传和在线图片链接 ([e5ca861](https://github.com/guizimo/cover-craft/commit/e5ca861a25d157672e06146e4625683a2b89cc2a))
+* (background) 背景新增圆角设置 ([a1c5889](https://github.com/guizimo/cover-craft/commit/a1c5889bdd9a0c0e62e9db476002683463340d3e))
+
+
+### Bug Fixes
+
+* (background) 修复样式冲突警告 ([3c1953e](https://github.com/guizimo/cover-craft/commit/3c1953eb7772196588af6186787cef57d3bb70d5))
+* (export) 修复导出图片的文字偏下的问题（fixes [#2](https://github.com/guizimo/cover-craft/issues/2)） ([3528f84](https://github.com/guizimo/cover-craft/commit/3528f842cd59b37bbd2ce2182031ece822b4fb6f))
+
 ### [0.0.4](https://github.com/guizimo/cover-craft/compare/v0.0.3...v0.0.4) (2025-02-06)
 
 
