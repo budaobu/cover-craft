@@ -2,7 +2,6 @@ import { useState } from 'react';
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 
-import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -42,7 +41,7 @@ export default function Generator() {
   const [isCustomSize, setIsCustomSize] = useState(false);
 
   const [fontSize, setFontSize] = useState(90);
-  const [fontFamily, setFontFamily] = useState('sans-serif');
+  const [fontFamily, setFontFamily] = useState('"ZCOOL QingKe HuangYou", cursive');
   const [letterSpacing, setLetterSpacing] = useState(10);
   const [backgroundColor, setBackgroundColor] = useState('#022D3D');
   const [textColor, setTextColor] = useState('#ffffff');
@@ -50,21 +49,23 @@ export default function Generator() {
   const [gradientEnd, setGradientEnd] = useState('#818cf8');
   const [gradientAngle, setGradientAngle] = useState(45);
   const [backgroundType, setBackgroundType] = useState('solid');
+  const [borderRadius, setBorderRadius] = useState(0);
   // 字体设置
   const [fontWeight, setFontWeight] = useState(500);
 
   // 重置设置
   const resetSettings = () => {
     setTitle('输入标题预览效果');
-    setFontSize(80);
+    setFontSize(90);
     setLetterSpacing(10);
-    setFontFamily('sans-serif');
+    setFontFamily('"ZCOOL QingKe HuangYou", cursive');
     setBackgroundColor('#022D3D');
     setTextColor('#ffffff');
     setGradientStart('#4f46e5');
     setGradientEnd('#818cf8');
     setGradientAngle(45);
     setBackgroundType('solid');
+    setBorderRadius(0);
   };
 
   // 添加字体配置
@@ -407,6 +408,20 @@ export default function Generator() {
                       </TabsContent>
                     </Tabs>
                     {/* ... 背景设置内容 ... */}
+                    <div className="space-y-2">
+                      <Label className="text-muted-foreground">背景圆角大小</Label>
+                      <div className="flex items-center space-x-2">
+                        <Slider
+                          value={[borderRadius]}
+                          onValueChange={([value]) => setBorderRadius(value)}
+                          min={0}
+                          max={100}
+                          step={1}
+                          className="flex-1"
+                        />
+                        <span className="w-12 text-sm text-muted-foreground text-right">{borderRadius}px</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -419,13 +434,14 @@ export default function Generator() {
           <div className="flex h-[calc(100vh-4rem)] flex-col">
             <div className="flex-1 overflow-auto bg-muted/40">
               <div className="flex h-full items-center justify-center p-6">
-                <Card
+                <div
                   id="cover-preview"
                   className="border-0 flex items-center justify-center relative overflow-hidden"
                   style={{
                     width: isCustomSize ? customWidth : selectedSize.width,
                     height: isCustomSize ? customHeight : selectedSize.height,
-                    background: computedBackgroundStyle()
+                    background: computedBackgroundStyle(),
+                    borderRadius: `${borderRadius}px`
                   }}
                 >
                   <div
@@ -440,7 +456,7 @@ export default function Generator() {
                   >
                     {title}
                   </div>
-                </Card>
+                </div>
               </div>
             </div>
           </div>
