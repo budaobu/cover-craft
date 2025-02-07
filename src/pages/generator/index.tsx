@@ -9,7 +9,7 @@ import { Slider } from '@/components/ui/slider';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Download, Github, ListRestart, Share2 } from 'lucide-react';
+import { Download, Github, ListRestart, Share2, Upload } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -50,6 +50,9 @@ export default function Generator() {
   const [gradientAngle, setGradientAngle] = useState(45);
   const [backgroundType, setBackgroundType] = useState('solid');
   const [borderRadius, setBorderRadius] = useState(0);
+  const [backgroundImage, setBackgroundImage] = useState('');
+  const [backgroundSize, setBackgroundSize] = useState<'cover' | 'contain'>('cover');
+  const [backgroundPosition, setBackgroundPosition] = useState('center');
   // 字体设置
   const [fontWeight, setFontWeight] = useState(500);
 
@@ -66,6 +69,9 @@ export default function Generator() {
     setGradientAngle(45);
     setBackgroundType('solid');
     setBorderRadius(0);
+    setBackgroundImage('');
+    setBackgroundSize('cover');
+    setBackgroundPosition('center');
   };
 
   // 添加字体配置
@@ -84,6 +90,18 @@ export default function Generator() {
     { value: '"Ma Shan Zheng", cursive', label: '马善政楷书' }
   ];
 
+  // 添加图片上传处理函数
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setBackgroundImage(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   // 计算背景样式
   const computedBackgroundStyle = () => {
     switch (backgroundType) {
@@ -91,6 +109,8 @@ export default function Generator() {
         return backgroundColor;
       case 'gradient':
         return `linear-gradient(${gradientAngle}deg, ${gradientStart}, ${gradientEnd})`;
+      case 'image':
+        return backgroundImage ? `url(${backgroundImage})` : 'none';
       case 'transparent':
         return 'transparent';
       default:
@@ -332,9 +352,10 @@ export default function Generator() {
                     <Tabs value={backgroundType} onValueChange={setBackgroundType}>
                       <div className="space-y-2">
                         <Label className="text-muted-foreground">模式</Label>
-                        <TabsList className="grid w-full grid-cols-3">
+                        <TabsList className="grid w-full grid-cols-4">
                           <TabsTrigger value="solid">纯色</TabsTrigger>
                           <TabsTrigger value="gradient">渐变</TabsTrigger>
+                          <TabsTrigger value="image">图片</TabsTrigger>
                           <TabsTrigger value="transparent">透明</TabsTrigger>
                         </TabsList>
                       </div>
@@ -406,6 +427,48 @@ export default function Generator() {
                           </div>
                         </div>
                       </TabsContent>
+                      <TabsContent value="image" className="space-y-4">
+                        <div className="space-y-4">
+                          <div className="grid grid-cols-2 gap-4">
+                            <div className="col-span-2">
+                              <Label className="text-muted-foreground">本地上传</Label>
+                              <div className="mt-2">
+                                <div className="flex items-center justify-center w-full">
+                                  <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer hover:bg-muted/50">
+                                    <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                      <Upload className="w-8 h-8 mb-2 text-muted-foreground" />
+                                      <p className="text-sm text-muted-foreground">点击上传图片</p>
+                                    </div>
+                                    <input type="file" className="hidden" accept="image/*" onChange={handleImageUpload} />
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="col-span-2">
+                              <Label className="text-muted-foreground">图片链接</Label>
+                              <div className="mt-2">
+                                <Input
+                                  placeholder="输入图片链接"
+                                  value={backgroundImage}
+                                  onChange={(e) => setBackgroundImage(e.target.value)}
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="space-y-2">
+                            <Label className="text-muted-foreground">图片填充方式</Label>
+                            <Select value={backgroundSize} onValueChange={(value: 'cover' | 'contain') => setBackgroundSize(value)}>
+                              <SelectTrigger>
+                                <SelectValue placeholder="选择填充方式" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="cover">填充</SelectItem>
+                                <SelectItem value="contain">适应</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </div>
+                      </TabsContent>
                     </Tabs>
                     {/* ... 背景设置内容 ... */}
                     <div className="space-y-2">
@@ -441,6 +504,9 @@ export default function Generator() {
                     width: isCustomSize ? customWidth : selectedSize.width,
                     height: isCustomSize ? customHeight : selectedSize.height,
                     background: computedBackgroundStyle(),
+                    backgroundSize: backgroundType === 'image' ? backgroundSize : undefined,
+                    backgroundPosition: backgroundType === 'image' ? backgroundPosition : undefined,
+                    backgroundRepeat: backgroundType === 'image' ? 'no-repeat' : undefined,
                     borderRadius: `${borderRadius}px`
                   }}
                 >
