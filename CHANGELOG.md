@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/guizimo/cover-craft/compare/v0.0.6...v0.0.7) (2025-02-08)
+
+
+### Features
+
+* (icon) 新增 icon 配置 ([cc48108](https://github.com/guizimo/cover-craft/commit/cc481084aad08e2a63cbb8fd6fa422cc9268ca46))
+
 ### [0.0.6](https://github.com/guizimo/cover-craft/compare/v0.0.5...v0.0.6) (2025-02-07)
 
 
