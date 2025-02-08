@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/guizimo/cover-craft/compare/v0.0.7...v0.0.8) (2025-02-08)
+
+
+### Bug Fixes
+
+* (export) 使用 dom-to-image 替代 html2canvas (fixes [#3](https://github.com/guizimo/cover-craft/issues/3)) ([1cb78b6](https://github.com/guizimo/cover-craft/commit/1cb78b6b2c8fe870fae705eddd588cf9faa0a555))
+
 ### [0.0.7](https://github.com/guizimo/cover-craft/compare/v0.0.6...v0.0.7) (2025-02-08)
 
 
