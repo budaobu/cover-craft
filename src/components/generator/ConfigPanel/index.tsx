@@ -2,6 +2,7 @@ import { TitleConfig } from './TitleConfig';
 import { SizeConfig } from './SizeConfig';
 import { FontConfig } from './FontConfig';
 import { BackgroundConfig } from './BackgroundConfig';
+import { IconConfig } from './IconConfig';
 
 export function ConfigPanel() {
   return (
@@ -12,6 +13,7 @@ export function ConfigPanel() {
           <SizeConfig />
           <FontConfig />
           <BackgroundConfig />
+          <IconConfig />
         </div>
       </div>
     </div>

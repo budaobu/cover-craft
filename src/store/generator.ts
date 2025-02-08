@@ -47,6 +47,20 @@ interface GeneratorState {
   setBackgroundSize: (size: 'cover' | 'contain') => void;
   backgroundPosition: string;
   setBackgroundPosition: (position: string) => void;
+
+  // 图标设置
+  showIcon: boolean;
+  setShowIcon: (show: boolean) => void;
+  iconPosition: string;
+  setIconPosition: (position: string) => void;
+  iconSize: number;
+  setIconSize: (size: number) => void;
+  iconBorderRadius: number;
+  setIconBorderRadius: (radius: number) => void;
+  iconShadow: number;
+  setIconShadow: (shadow: number) => void;
+  iconImage: string;
+  setIconImage: (image: string) => void;
   
   // 重置
   resetSettings: () => void;
@@ -98,6 +112,20 @@ export const useGeneratorStore = create<GeneratorState>((set) => ({
   setBackgroundSize: (size) => set({ backgroundSize: size }),
   backgroundPosition: DEFAULT_SETTINGS.backgroundPosition,
   setBackgroundPosition: (position) => set({ backgroundPosition: position }),
+
+  // 图标设置
+  showIcon: false,
+  setShowIcon: (show) => set({ showIcon: show }),
+  iconPosition: 'top-left',
+  setIconPosition: (position) => set({ iconPosition: position }),
+  iconSize: 60,
+  setIconSize: (size) => set({ iconSize: size }),
+  iconBorderRadius: 8,
+  setIconBorderRadius: (radius) => set({ iconBorderRadius: radius }),
+  iconShadow: 0,
+  setIconShadow: (shadow) => set({ iconShadow: shadow }),
+  iconImage: '',
+  setIconImage: (image) => set({ iconImage: image }),
   
   // 重置
   resetSettings: () => set({
