@@ -1,4 +1,4 @@
-import html2canvas from 'html2canvas';
+import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
 
 export const computeBackgroundStyle = (
@@ -52,20 +52,28 @@ export const exportImage = async (
   if (!element) return;
 
   try {
-    const canvas = await html2canvas(element, {
-      scale: 2,
-      backgroundColor: backgroundType === 'transparent' ? null : undefined
-    });
+    const options: any = {
+      quality: 1,
+      bgcolor: backgroundType === 'transparent' ? null : undefined
+    };
 
-    canvas.toBlob(
-      (blob) => {
-        if (blob) {
-          saveAs(blob, `cover.${format}`);
-        }
-      },
-      `image/${format}`,
-      0.95
-    );
+    let blob;
+    switch (format) {
+      case 'png':
+        blob = await domtoimage.toBlob(element, options);
+        break;
+      case 'jpeg':
+        blob = await domtoimage.toJpeg(element, options);
+        break;
+      case 'webp':
+      case 'avif':
+        blob = await domtoimage.toPng(element, options);
+        break;
+    }
+
+    if (blob) {
+      saveAs(blob, `cover.${format}`);
+    }
   } catch (error) {
     console.error('Export failed:', error);
   }
