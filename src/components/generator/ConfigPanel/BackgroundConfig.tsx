@@ -23,6 +23,8 @@ export function BackgroundConfig() {
     setBackgroundImage,
     backgroundSize,
     setBackgroundSize,
+    backdropBlur,
+    setBackdropBlur,
     borderRadius,
     setBorderRadius
   } = useGeneratorStore();
@@ -154,6 +156,21 @@ export function BackgroundConfig() {
             </div>
           </TabsContent>
         </Tabs>
+        {/* 添加毛玻璃效果设置 */}
+      <div className="space-y-2">
+        <Label className="text-muted-foreground">毛玻璃效果</Label>
+        <div className="flex items-center space-x-2">
+          <Slider
+            value={[backdropBlur]}
+            onValueChange={([value]) => setBackdropBlur(value)}
+            min={0}
+            max={20}
+            step={0.5}
+            className="flex-1"
+          />
+          <span className="w-12 text-sm text-muted-foreground text-right">{backdropBlur}px</span>
+        </div>
+      </div>
         <div className="space-y-2">
           <Label className="text-muted-foreground">背景圆角大小</Label>
           <div className="flex items-center space-x-2">

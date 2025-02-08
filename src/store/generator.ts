@@ -47,6 +47,8 @@ interface GeneratorState {
   setBackgroundSize: (size: 'cover' | 'contain') => void;
   backgroundPosition: string;
   setBackgroundPosition: (position: string) => void;
+  backdropBlur: number;
+  setBackdropBlur: (blur: number) => void;
 
   // 图标设置
   showIcon: boolean;
@@ -112,6 +114,8 @@ export const useGeneratorStore = create<GeneratorState>((set) => ({
   setBackgroundSize: (size) => set({ backgroundSize: size }),
   backgroundPosition: DEFAULT_SETTINGS.backgroundPosition,
   setBackgroundPosition: (position) => set({ backgroundPosition: position }),
+  backdropBlur: 0,
+  setBackdropBlur: (blur) => set({ backdropBlur: blur }),
 
   // 图标设置
   showIcon: false,

@@ -27,6 +27,7 @@ export function Preview() {
         iconSize,
         iconBorderRadius,
         iconShadow,
+        backdropBlur,
         iconImage
     } = useGeneratorStore();
 
@@ -69,9 +70,32 @@ export function Preview() {
                             width: isCustomSize ? customWidth : selectedSize.width,
                             height: isCustomSize ? customHeight : selectedSize.height,
                             borderRadius: `${borderRadius}px`,
-                            ...backgroundStyle
+                            position: 'relative',
                         }}
                     >
+                        {/* 背景层 */}
+                        <div
+                            style={{
+                                position: 'absolute',
+                                inset: 0,
+                                ...backgroundStyle,
+                            }}
+                        />
+                        
+                        {/* 毛玻璃效果层 */}
+                        {backdropBlur > 0 && (
+                            <div
+                                style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    backdropFilter: `blur(${backdropBlur}px)`,
+                                    WebkitBackdropFilter: `blur(${backdropBlur}px)`,
+                                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                }}
+                            />
+                        )}
+    
+                        {/* 内容层 */}
                         <div
                             style={{
                                 position: 'absolute',
@@ -84,11 +108,14 @@ export function Preview() {
                                 color: textColor,
                                 letterSpacing: `${letterSpacing}px`,
                                 width: '100%',
-                                textAlign: 'center'
+                                textAlign: 'center',
+                                zIndex: 1
                             }}
                         >
                             {title}
                         </div>
+    
+                        {/* 图标层 */}
                         {showIcon && iconImage && (
                             <img
                                 src={iconImage}
@@ -102,9 +129,9 @@ export function Preview() {
                                                0 ${iconShadow/3}px ${iconShadow/2}px rgba(0, 0, 0, 0.12),
                                                0 ${iconShadow/4}px ${iconShadow/3}px rgba(0, 0, 0, 0.1),
                                                0 0 ${iconShadow}px rgba(255, 255, 255, 0.1)` : 'none',
-                                    backdropFilter: iconShadow > 0 ? `blur(${iconShadow/3}px)` : 'none',
                                     overflow: 'hidden',
                                     objectFit: 'cover',
+                                    zIndex: 2,
                                     ...getIconPosition()
                                 }}
                             />
