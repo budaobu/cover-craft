@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/guizimo/cover-craft/compare/v0.0.8...v0.0.9) (2025-02-10)
+
+
+### Features
+
+* (background) 新增背景毛玻璃效果 ([b3345ca](https://github.com/guizimo/cover-craft/commit/b3345ca3dee3ecc2af5acc63ccb65a954c2949b0))
+* (font) 添加字体设置功能，支持斜体 ([b42e568](https://github.com/guizimo/cover-craft/commit/b42e568dd931f730c97c2a36ac2fa9af0308deae))
+* (font) 添加站酷酷黑体 ([49d3da3](https://github.com/guizimo/cover-craft/commit/49d3da3cd9e39e50e3ac8878970b1cf06db15cc6))
+
 ### [0.0.8](https://github.com/guizimo/cover-craft/compare/v0.0.7...v0.0.8) (2025-02-08)
 
 
