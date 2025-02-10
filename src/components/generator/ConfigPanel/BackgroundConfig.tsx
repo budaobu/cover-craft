@@ -6,6 +6,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Upload } from 'lucide-react';
 import { useGeneratorStore } from '@/store/generator';
 import { handleImageUpload } from '@/utils/generator';
+import { PRESET_COLORS } from '@/config/generator';
+import { useState } from 'react';
 
 export function BackgroundConfig() {
   const {
@@ -29,6 +31,21 @@ export function BackgroundConfig() {
     setBorderRadius
   } = useGeneratorStore();
 
+  // 添加颜色历史记录状态
+  const [colorHistory, setColorHistory] = useState<string[]>(() => {
+    const saved = localStorage.getItem('colorHistory');
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  // 处理颜色变化
+  const handleColorChange = (color: string) => {
+    setBackgroundColor(color);
+    // 更新历史记录
+    const newHistory = [color, ...colorHistory.filter((c) => c !== color)].slice(0, 5);
+    setColorHistory(newHistory);
+    localStorage.setItem('colorHistory', JSON.stringify(newHistory));
+  };
+
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
@@ -45,16 +62,59 @@ export function BackgroundConfig() {
               <TabsTrigger value="transparent">透明</TabsTrigger>
             </TabsList>
           </div>
-          <TabsContent value="solid" className="space-y-2">
+          <TabsContent value="solid" className="space-y-4">
             <div className="space-y-2">
-              <Label className="text-muted-foreground">背景颜色</Label>
+              <Label className="text-muted-foreground">预设颜色</Label>
+              <div className="grid grid-cols-10 gap-1.5">
+                {PRESET_COLORS.map(({ value, label }) => (
+                  <button
+                    key={value}
+                    className="w-6 h-6 rounded-md border relative group hover:scale-110 transition-transform"
+                    style={{ backgroundColor: value }}
+                    onClick={() => handleColorChange(value)}
+                    title={label}
+                  >
+                    {backgroundColor === value && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/20 text-white">
+                        <span className="text-[10px]">✓</span>
+                      </div>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {colorHistory.length > 0 && (
+              <div className="space-y-2">
+                <Label className="text-muted-foreground">最近使用</Label>
+                <div className="grid grid-cols-10 gap-1.5">
+                  {colorHistory.map((color) => (
+                    <button
+                      key={color}
+                      className="w-6 h-6 rounded-md border relative group hover:scale-110 transition-transform"
+                      style={{ backgroundColor: color }}
+                      onClick={() => handleColorChange(color)}
+                    >
+                      {backgroundColor === color && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 text-white">
+                          <span className="text-[10px]">✓</span>
+                        </div>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div className="space-y-2">
+              <Label className="text-muted-foreground">自定义颜色</Label>
               <div className="flex space-x-2">
-                <Input value={backgroundColor} onChange={(e) => setBackgroundColor(e.target.value)} />
+                <Input value={backgroundColor} onChange={(e) => handleColorChange(e.target.value)} />
                 <div className="relative w-10">
                   <input
                     type="color"
                     value={backgroundColor}
-                    onChange={(e) => setBackgroundColor(e.target.value)}
+                    onChange={(e) => handleColorChange(e.target.value)}
                     className="absolute inset-0 w-full h-full cursor-pointer opacity-0"
                   />
                   <div className="w-full h-full rounded-md border" style={{ backgroundColor }} />
@@ -157,20 +217,20 @@ export function BackgroundConfig() {
           </TabsContent>
         </Tabs>
         {/* 添加毛玻璃效果设置 */}
-      <div className="space-y-2">
-        <Label className="text-muted-foreground">毛玻璃效果</Label>
-        <div className="flex items-center space-x-2">
-          <Slider
-            value={[backdropBlur]}
-            onValueChange={([value]) => setBackdropBlur(value)}
-            min={0}
-            max={20}
-            step={0.5}
-            className="flex-1"
-          />
-          <span className="w-12 text-sm text-muted-foreground text-right">{backdropBlur}px</span>
+        <div className="space-y-2">
+          <Label className="text-muted-foreground">毛玻璃效果</Label>
+          <div className="flex items-center space-x-2">
+            <Slider
+              value={[backdropBlur]}
+              onValueChange={([value]) => setBackdropBlur(value)}
+              min={0}
+              max={20}
+              step={0.5}
+              className="flex-1"
+            />
+            <span className="w-12 text-sm text-muted-foreground text-right">{backdropBlur}px</span>
+          </div>
         </div>
-      </div>
         <div className="space-y-2">
           <Label className="text-muted-foreground">背景圆角大小</Label>
           <div className="flex items-center space-x-2">
