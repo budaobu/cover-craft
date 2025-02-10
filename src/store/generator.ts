@@ -27,6 +27,8 @@ interface GeneratorState {
   setFontWeight: (weight: number) => void;
   textColor: string;
   setTextColor: (color: string) => void;
+  fontStyle: string;
+  setFontStyle: (style: string) => void;
   
   // 背景
   backgroundColor: string;
@@ -94,6 +96,8 @@ export const useGeneratorStore = create<GeneratorState>((set) => ({
   setFontWeight: (weight) => set({ fontWeight: weight }),
   textColor: DEFAULT_SETTINGS.textColor,
   setTextColor: (color) => set({ textColor: color }),
+  fontStyle: 'normal',
+  setFontStyle: (style) => set({ fontStyle: style }),
   
   // 背景
   backgroundColor: DEFAULT_SETTINGS.backgroundColor,

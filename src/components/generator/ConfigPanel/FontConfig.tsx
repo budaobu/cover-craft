@@ -16,7 +16,9 @@ export function FontConfig() {
     fontWeight,
     setFontWeight,
     textColor,
-    setTextColor
+    setTextColor,
+    fontStyle,
+    setFontStyle
   } = useGeneratorStore();
 
   return (
@@ -37,6 +39,18 @@ export function FontConfig() {
                   <span style={{ fontFamily: value }}>{label}</span>
                 </SelectItem>
               ))}
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="space-y-2">
+          <Label className="text-muted-foreground">字体倾斜</Label>
+          <Select value={fontStyle} onValueChange={setFontStyle}>
+            <SelectTrigger>
+              <SelectValue placeholder="选择倾斜样式" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="normal">正常</SelectItem>
+              <SelectItem value="italic">斜体</SelectItem>
             </SelectContent>
           </Select>
         </div>
