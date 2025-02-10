@@ -127,13 +127,9 @@ export function Preview() {
                   width: `${iconSize}px`,
                   height: `${iconSize}px`,
                   borderRadius: `${iconBorderRadius}px`,
-                  boxShadow:
-                    iconShadow > 0
-                      ? `0 ${iconShadow / 2}px ${iconShadow}px rgba(0, 0, 0, 0.15), 
-                                               0 ${iconShadow / 3}px ${iconShadow / 2}px rgba(0, 0, 0, 0.12),
-                                               0 ${iconShadow / 4}px ${iconShadow / 3}px rgba(0, 0, 0, 0.1),
-                                               0 0 ${iconShadow}px rgba(255, 255, 255, 0.1)`
-                      : 'none',
+                  boxShadow: iconShadow > 0 ? `0 ${iconShadow/2}px ${iconShadow}px rgba(0, 0, 0, 0.08),
+                  0 ${iconShadow/3}px ${iconShadow/2}px rgba(0, 0, 0, 0.06),
+                  0 ${iconShadow/4}px ${iconShadow/3}px rgba(0, 0, 0, 0.04)` : 'none',
                   overflow: 'hidden',
                   objectFit: 'cover',
                   zIndex: 2,

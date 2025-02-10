@@ -61,3 +61,16 @@ export const PRESET_COLORS = [
   { value: '#A8E6CF', label: '清新绿' },
   { value: '#FFD3B6', label: '蜜桃色' }
 ];
+
+export const PRESET_GRADIENTS = [
+  { start: '#FF6B6B', end: '#4ECDC4', label: '珊瑚蓝' },
+  { start: '#A8E6CF', end: '#FFD3B6', label: '清新橙' },
+  { start: '#867AE9', end: '#FFF3F3', label: '薰衣草白' },
+  { start: '#FFB174', end: '#FF6B6B', label: '暖阳红' },
+  { start: '#4ECDC4', end: '#556270', label: '海洋灰' },
+  { start: '#96CEB4', end: '#FFEEAD', label: '抹茶米' },
+  { start: '#D4A5A5', end: '#9B6B6B', label: '暮光棕' },
+  { start: '#45B7D1', end: '#A8E6CF', label: '天空绿' },
+  { start: '#FF9A9E', end: '#FAD0C4', label: '蜜桃粉' },
+  { start: '#A1C4FD', end: '#C2E9FB', label: '天空蓝' }
+];
