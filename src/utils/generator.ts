@@ -46,12 +46,14 @@ export const handleImageUpload = (
 
 export const exportImage = async (
   format: 'png' | 'jpeg' | 'webp' | 'avif',
-  backgroundType: string
+  backgroundType: string,
+  setIsExporting: (value: boolean) => void
 ) => {
   const element = document.getElementById('cover-preview');
   if (!element) return;
 
   try {
+    setIsExporting(true);
     const options: any = {
       quality: 1,
       bgcolor: backgroundType === 'transparent' ? null : undefined
@@ -76,5 +78,7 @@ export const exportImage = async (
     }
   } catch (error) {
     console.error('Export failed:', error);
+  } finally {
+    setIsExporting(false);
   }
 };

@@ -65,6 +65,9 @@ interface GeneratorState {
   setIconShadow: (shadow: number) => void;
   iconImage: string;
   setIconImage: (image: string) => void;
+
+  isExporting: boolean;
+  setIsExporting: (value: boolean) => void;
   
   // 重置
   resetSettings: () => void;
@@ -134,6 +137,9 @@ export const useGeneratorStore = create<GeneratorState>((set) => ({
   setIconShadow: (shadow) => set({ iconShadow: shadow }),
   iconImage: '',
   setIconImage: (image) => set({ iconImage: image }),
+
+  isExporting: false,
+  setIsExporting: (value) => set({ isExporting: value }),
   
   // 重置
   resetSettings: () => set({

@@ -1,5 +1,6 @@
 import { useGeneratorStore } from '@/store/generator';
 import { computeBackgroundStyle } from '@/utils/generator';
+import { Loader2 } from 'lucide-react';
 
 export function Preview() {
   const {
@@ -29,7 +30,8 @@ export function Preview() {
     iconBorderRadius,
     iconShadow,
     backdropBlur,
-    iconImage
+    iconImage,
+    isExporting
   } = useGeneratorStore();
 
   const backgroundStyle = computeBackgroundStyle(
@@ -64,6 +66,15 @@ export function Preview() {
     <div className="flex h-[calc(100vh-4rem)] flex-col">
       <div className="flex-1 overflow-auto bg-muted/40">
         <div className="flex h-full items-center justify-center p-6">
+           {/* 导出加载层 */}
+          {isExporting && (
+            <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-50">
+              <div className="flex flex-col items-center space-y-2">
+                <Loader2 className="w-8 h-8 text-white animate-spin" />
+                <span className="text-white text-sm">正在导出...</span>
+              </div>
+            </div>
+          )}
           <div
             id="cover-preview"
             className="border-0 relative overflow-hidden"

@@ -10,7 +10,7 @@ import { useGeneratorStore } from '@/store/generator';
 import { exportImage } from '@/utils/generator';
 
 export function Header() {
-  const { resetSettings, backgroundType } = useGeneratorStore();
+  const { resetSettings, backgroundType, setIsExporting } = useGeneratorStore();
 
   return (
     <div className="border-b">
@@ -40,10 +40,10 @@ export function Header() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-              <DropdownMenuItem onClick={() => exportImage('png', backgroundType)}>PNG 格式</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => exportImage('jpeg', backgroundType)}>JPEG 格式</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => exportImage('webp', backgroundType)}>WebP 格式</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => exportImage('avif', backgroundType)}>AVIF 格式</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => exportImage('png', backgroundType, setIsExporting)}>PNG 格式</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => exportImage('jpeg', backgroundType, setIsExporting)}>JPEG 格式</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => exportImage('webp', backgroundType, setIsExporting)}>WebP 格式</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => exportImage('avif', backgroundType, setIsExporting)}>AVIF 格式</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
