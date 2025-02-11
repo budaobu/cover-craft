@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/guizimo/cover-craft/compare/v0.0.10...v0.0.11) (2025-02-11)
+
+
+### Features
+
+* (export) 新增导出 Loading 效果 （fixes [#4](https://github.com/guizimo/cover-craft/issues/4)） ([7002c1b](https://github.com/guizimo/cover-craft/commit/7002c1b132715c44390820e6071492447239c928))
+
 ### [0.0.10](https://github.com/guizimo/cover-craft/compare/v0.0.9...v0.0.10) (2025-02-11)
 
 
