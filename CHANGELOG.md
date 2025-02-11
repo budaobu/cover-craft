@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/guizimo/cover-craft/compare/v0.0.9...v0.0.10) (2025-02-11)
+
+
+### Features
+
+* (background) 背景渐变色支持预设 ([30c0b4b](https://github.com/guizimo/cover-craft/commit/30c0b4b791566028aa45f7a4e4eca218a0620eac))
+
 ### [0.0.9](https://github.com/guizimo/cover-craft/compare/v0.0.8...v0.0.9) (2025-02-10)
 
 
