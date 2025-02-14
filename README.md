@@ -3,7 +3,7 @@
 English | [简体中文](./README.zh-CN.md)
 
 <div align="center">
-  <img src="public/logo.jpg" alt="Cover Craft Logo" width="180" />
+  <img src="public/logo.png" alt="Cover Craft Logo" width="180" />
   
   <p><em>A modern cover design tool that makes creation simple</em></p>
 
